@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cropper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.css"
+        integrity="sha512-949FvIQOibfhLTgmNws4F3DVlYz3FmCRRhJznR22hx76SKkcpZiVV5Kwo0iwK9L6BFuY+6mpdqB2+vDIGVuyHg=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <div>
+        <div x-data="Crop()">
+            <template x-if="saveImage">
+                <div>
+                    <button @click="save">Save</button>
+                    <template x-if="showRemoveCrop">
+                        <button @click="removeCrop">Remove Crop</button>
+                    </template>
+
+                    <template x-if="!showRemoveCrop">
+                        <button @click="addCrop">Add Crop</button>
+                    </template>
+                </div>
+            </template>
+            <form action="" x-ref="form">
+                <img src="" alt="" x-ref="image_preview">
+                <br>
+                <input type="file" name="file" x-ref="image" @change="preview">
+            </form>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.js"
+        integrity="sha512-9pGiHYK23sqK5Zm0oF45sNBAX/JqbZEP7bSDHyt+nT3GddF+VFIcYNqREt0GDpmFVZI3LZ17Zu9nMMc9iktkCw=="
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
